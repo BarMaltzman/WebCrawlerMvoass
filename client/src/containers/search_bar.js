@@ -18,9 +18,17 @@ class SearchBar extends Component {
     }
     onFormSubmit(event){
         event.preventDefault();
-        
-
-        this.props.fetchWeather(this.state.term);
+        var matchedCities = cachedCities.filter(currCity=>{
+            return (this.state.term.toLocaleLowerCase() ===  currCity.toLocaleLowerCase())
+            });
+        console.log(matchedCities.length);
+        if (matchedCities.length === 0){
+            cachedCities.unshift(this.state.term);
+            this.props.fetchWeather(this.state.term);
+        }
+        else {
+            alert("The city You have been looking for is rendered om the screen");
+        }
         this.setState({term: ''});
     }
 

@@ -13,15 +13,17 @@ class SearchBar extends Component {
         this.onFormSubmit = this.onFormSubmit.bind(this);
     }
     onInputChange(event){
-        // console.log(event.target.value)
         this.setState({term: event.target.value});
     }
+    /*
+        The following function is responsible for preventing the default form behavior
+     */
     onFormSubmit(event){
         event.preventDefault();
-        var matchedCities = cachedCities.filter(currCity=>{
-            return (this.state.term.toLocaleLowerCase() ===  currCity.toLocaleLowerCase())
+        let cityToFetch = this.state.term.toLocaleLowerCase();
+        let matchedCities = cachedCities.filter(currCity=>{
+            return (cityToFetch ===  currCity.toLocaleLowerCase())
             });
-        console.log(matchedCities.length);
         if (matchedCities.length === 0){
             cachedCities.unshift(this.state.term);
             this.props.fetchWeather(this.state.term);
@@ -40,7 +42,7 @@ class SearchBar extends Component {
                 className="input-group"
             >
                 < input
-                    placeholder="Moveo Member, Type a city name and get a weather forcast"
+                    placeholder="Type a city name and get a weather forcast"
                     className="form-control"
                     value={this.state.term}
                     onChange={this.onInputChange}

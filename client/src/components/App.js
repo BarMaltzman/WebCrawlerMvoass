@@ -6,6 +6,9 @@ import {connect} from 'react-redux';
 import {fetchWeather} from '../actions';
 
 class App extends Component {
+    /*
+    as asked, Fetching the current weather for 2 cities
+     */
     componentDidMount(){
         this.props.fetchWeather('New York');
         this.props.fetchWeather('Los Angeles');

@@ -29,7 +29,7 @@ def get_city_data(city_name):
 
     element = driver.find_element_by_xpath('// *[ @ id = "weather-widget"] / table / tbody / tr[4] / td[2]')
     humidity = element.text.strip()
-
+    humidity = humidity.replace("%","")
     pure_json = {}
     pure_json["city_name"] = city_name
     pure_json["tempreture"] = tempreture

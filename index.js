@@ -20,14 +20,7 @@ app.get('/getdata/:city', function (req, res) {
 
       res.send(data.toString())
 
-
     });
-
-    process.stdout.on('end', function(){
-      console.log('Success');
-    });
-
-
 
 })
 

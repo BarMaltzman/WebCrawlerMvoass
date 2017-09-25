@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchWeather } from "../actions/index";
 
-const cachedCities = ['New York', 'Los Angeles'];
+import {cachedCities} from './App';
 class SearchBar extends Component {
     constructor(props){
         super(props);
@@ -20,8 +20,8 @@ class SearchBar extends Component {
      */
     onFormSubmit(event){
         event.preventDefault();
-        let cityToFetch = this.state.term.toLocaleLowerCase();
-        let matchedCities = cachedCities.filter(currCity=>{
+        const cityToFetch = this.state.term.toLocaleLowerCase();
+        const matchedCities = cachedCities.filter(currCity=>{
             return (cityToFetch ===  currCity.toLocaleLowerCase())
             });
         if (matchedCities.length === 0){

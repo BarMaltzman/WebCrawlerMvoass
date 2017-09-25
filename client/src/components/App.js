@@ -5,6 +5,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {fetchWeather} from '../actions';
 
+export const cachedCities = [];
+
 class App extends Component {
     /*
     as asked, Fetching the current weather for 2 cities

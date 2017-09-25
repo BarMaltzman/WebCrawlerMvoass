@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchBar from "../containers/search_bar";
-import WeatherList from "../containers/weather_list";
+import SearchBar from "./search_bar";
+import WeatherList from "./weather_list";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {fetchWeather} from '../actions';

@@ -8,7 +8,7 @@ class WeatherList extends Component {
         const cityJ = JSON.parse(city);
         return(
             <tr key={cityJ.city_name}>
-                <td>{cityJ.city_name.substring(1)}</td>
+                <td>{cityJ.city_name}</td>
                 <td>{Math.round(cityJ.tempreture)}</td>
                 <td>{cityJ.humidity}</td>
                 <td>{cityJ.wind}</td>

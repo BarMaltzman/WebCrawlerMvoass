@@ -12,7 +12,7 @@ app.get('/getdata/:city', function (req, res) {
     res.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
-    var cityName = req.params.city;
+    var cityName = req.params.city.substring(1);
 
     var process = spawn('python3',["main.py", cityName]);
 
